@@ -2,7 +2,7 @@
 not yet settled:
 1. Sign In Page (try this yourself)
 2. Dynamically compute average rating per published review for both client and freelancer
-3. Include the rate of the job in the information displayed. This should be optional for the user. Also include in the forms: `Post.js` and `OfferJob.js`
+3. Include the rate of the job in the information displayed. This should be optional for the user. Also include a rate field in the forms: `Post.js` and `OfferJob.js`
 4. Handle required form fields. Add placeholders, fix wording etc. 
 5. Implement "semi-auth":
     - Per sign in, the ID of the user should be updated using setSignedInUser (this should also work for sign up)
