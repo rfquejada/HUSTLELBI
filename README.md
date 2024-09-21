@@ -15,5 +15,5 @@ not yet settled:
 2. add dummy data 
 3. all UI logic should be working right now, contact [@cazhiareese] if you have questions
 4. you can always fix and modify the rendered data, it should be understandable enough using basic HTML, just don't modify the functions
-
+5. check `./Components/Post.js` to know how to render a dialog box using Tailwind. The principle should be the same, the dialog box will close when cancel is clicked. 
 Thank you! Good luck HUSTLELBI! 

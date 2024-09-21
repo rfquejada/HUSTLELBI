@@ -71,7 +71,9 @@ function Post (props)
         setDifficulty(e.target.value);
       };
     return (
-        <div>
+      <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+      <div className="bg-orange-50 rounded-lg p-6 w-full max-h-xl max-w-3xl">
+      <div className="flex justify-between items-center mb-4">
             <h1>Post a Job</h1>
             <form onSubmit={e => handleSubmit(e, navigate)}>
                 <div>
@@ -156,6 +158,8 @@ function Post (props)
                 <button type="submit">Submit post</button>
                 <button onClick={() => handleCancel()}> Cancel</button>
             </form>
+            </div>
+        </div>
         </div>
     )
 }
