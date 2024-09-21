@@ -11,10 +11,13 @@ not yet settled:
     - Only signed in users can access their `in progress` and `awaiting` tab as client and `direct offers` tab as freelancer
 
 ### Important Notes: 
-1. uncomment `import "./index.css";` to enable Tailwind, enabling Tailwind strips off all styling from HTML so it can be confusing if pushed like this
-2. add dummy data 
-3. all UI logic should be working right now, contact [@cazhiareese] if you have questions
-4. you can always fix and modify the rendered data, it should be understandable enough using basic HTML, just don't modify the functions
-5. check `./Components/Post.js` to know how to render a dialog box using Tailwind. The principle should be the same, the dialog box will close when cancel is clicked. 
+1. run `npm install` to install all necessary modules. this should also take care of the Tailwind set up. 
+2. If you don't have node JS, I assume you would be using WSL, installation can be found here: https://github.com/nvm-sh/nvm#installing-and-updating, restart terminal, run `nvm install stable`
+3. in case tailwind does not automatically render you should be able to find instructions here: https://tailwindcss.com/docs/guides/create-react-app
+4. uncomment `import "./index.css";` to enable Tailwind, enabling Tailwind strips off all styling from HTML so it can be confusing if pushed like this
+5. add dummy data 
+6. all UI logic should be working right now, contact [@cazhiareese] if you have questions
+7. you can always fix and modify the rendered data, it should be understandable enough using basic HTML, just don't modify the functions
+8. check `./Components/Post.js` to know how to render a dialog box using Tailwind. The principle should be the same, the dialog box will close when cancel is clicked. 
 
 Thank you! Good luck HUSTLELBI! 
