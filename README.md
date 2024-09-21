@@ -7,8 +7,8 @@ not yet settled:
 5. Implement "semi-auth":
     - Per sign in, the ID of the user should be updated using setSignedInUser (this should also work for sign up)
     - Currently, the id: 1 for user and client are different people, this should not be the case. One user should be associated to one id. It is only done this way for easier testing. Therefore, when a user signs up as freelancer, and wants to post a job, building a client profile is necessary. This should also work vice versa.
-    -If a user is signed in, they should not see the `offer job` button on their own profile page. 
-    -Only signed in users can access their `in progress` and `awaiting` tab as client and `direct offers` tab as freelancer
+    - If a user is signed in, they should not see the `offer job` button on their own profile page. 
+    - Only signed in users can access their `in progress` and `awaiting` tab as client and `direct offers` tab as freelancer
 
 ### Important Notes: 
 1. uncomment `import "./index.css";` to enable Tailwind, enabling Tailwind strips off all styling from HTML so it can be confusing if pushed like this
