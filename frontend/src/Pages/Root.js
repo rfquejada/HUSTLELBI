@@ -1,6 +1,7 @@
 import { Link, Outlet } from "react-router-dom"
 import { useState } from "react";
 import Post from "../Components/Post";
+import logoImage from '../assets/HUST__2_-removebg-preview 2.png';
 
 
 function Root ()
@@ -125,30 +126,67 @@ function Root ()
     const uniqueServiceTypes = [...new Set(freelancers.flatMap(freelancer => freelancer.service_type))];
 
     return (
-    <div>
-        <nav>
-            <ul>
-                <li> <Link to="/">Home</Link></li>
-                <li> <Link to={`/profile/${signedInUser}`}>Profile</Link></li>
-                <li> <Link to="/SignUp">Sign Up</Link> </li>
-                <li> <Link to="/SignIn">SignIn</Link> </li>
-                <li> <Link to="/BuildFreelancer">BuildFreelancer</Link> </li>
-                <li> <Link to="/BuildClient">Buildclient</Link> </li>
-                <button onClick={() => setShow(true)}> Post a job offer! </button>
-                {/* check here if may existing client profile */}
-                {
-                    show ? (
-                        <Post show = {setShow} jobs = {jobPostings} setJobs = {setJobPostings} user = {signedInUser} type = {uniqueServiceTypes}/>
-                    ): null
-                }
-
-            </ul>
-        </nav>
-
         <div>
-            <Outlet context={{freelancers, setFreelancers, clients, setClients, jobPostings, setJobPostings, signedInUser, uniqueServiceTypes}}/>
+        <nav className="bg-[#1E1E1E] p-2 shadow-2xl">
+            <div className="container mx-auto flex justify-between items-center">
+                {/* Logo Section */}
+                <div className="flex items-center space-x-8">
+                    <Link to="/">
+                        <img src={logoImage} alt="Logo" className="w-48 h-24" />
+                    </Link>
+                    <Link to="/"  className="text-yellow-400 text-xl font-bold hover:text-yellow-600">
+                        HOME
+                    </Link>
+                    <Link to="/jobs"  className="text-yellow-400 text-xl font-bold hover:text-yellow-600">
+                        OFFERS
+                    </Link>
+                </div>
+                {/* Right-side Menu */}
+                <div className="flex items-center space-x-8">
+                    <button onClick={() => setShow(true)} className="bg-yellow-400 text-black px-4 py-2 rounded-full hover:bg-yellow-500 font-bold">
+                        + POST
+                    </button>
+                    <Link to={`/profile/${signedInUser}`}>
+                        <img
+                            src={signedInUser?.img ? signedInUser.img : "https://www.seekpng.com/png/detail/966-9665317_placeholder-image-person-jpg.png"}
+                            alt="User Profile"
+                            className="w-10 h-10 rounded-full object-cover hover:border-yellow-400 border-2"
+                        />
+                    </Link>
+                </div>
+            </div>
+        </nav>
+    
+        {/* Post Job Modal */}
+        {
+            show ? (
+                <Post 
+                    show={setShow} 
+                    jobs={jobPostings} 
+                    setJobs={setJobPostings} 
+                    user={signedInUser} 
+                    type={uniqueServiceTypes}
+                />
+            ) : null
+        }
+    
+        {/* Main Content */}
+        <div>
+            <Outlet 
+                context={{
+                    freelancers, 
+                    setFreelancers, 
+                    clients, 
+                    setClients, 
+                    jobPostings, 
+                    setJobPostings, 
+                    signedInUser, 
+                    uniqueServiceTypes
+                }}
+            />
         </div>
     </div>
+    
     );
 }
 

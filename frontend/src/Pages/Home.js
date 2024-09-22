@@ -5,7 +5,8 @@ function Home() {
 
     return (
         <div className="bg-[#E9E6C7] min-h-screen flex flex-col justify-center items-center">
-            <div className="grid lg:grid-cols-3 md:grid-cols-2 pb-30 gap-20 mx-32">
+            {/* Grid of Freelancers */}
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-10 mt-8 mx-12">
                 {freelancers.map((user) => {
                     return (
                         <div className="flex w-full p-6 max-w-md flex-col rounded-3xl shadow-md" style={{ backgroundColor: '#1E1E1E' }}>
@@ -61,17 +62,19 @@ function Home() {
                     );
                 })}
             </div>
-            <footer class="fixed bottom-0 left-0 z-10 w-full p-2 bg-yellow-400 border-t border-yellow-400 shadow md:flex md:items-center md:justify-between md:p-2 bg-yellow-400">
-                <span class="text-4xl font-bold text-black sm:text-center">
+
+            {/* Footer: Sticky to Bottom */}
+            <footer className="w-full bg-yellow-400 p-4 mt-auto border-t border-yellow-400 shadow md:flex md:items-center md:justify-between md:p-2 bg-yellow-400">
+                <span className="text-4xl font-bold text-black">
                     HIRE HUSTLEBEES!
                 </span>
                 <Link to="/jobs">
-                    <button className="bg-black text-yellow-400 px-4 py-2 rounded-3xl hover:bg-gray-500">
+                    <button className="bg-black text-yellow-400 px-4 py-2 rounded-3xl hover:bg-gray-500 mt-4">
                         View Job Offers
                     </button>
                 </Link>
             </footer>
-
+            
         </div>
     );
 }
