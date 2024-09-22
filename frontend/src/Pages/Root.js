@@ -83,6 +83,7 @@ function Root ()
                 <li> <Link to="/">Home</Link></li>
                 <li> <Link to={`/profile/${signedInUser}`}>Profile</Link></li>
                 <li> <Link to="/SignUp">Sign Up</Link> </li>
+                <li> <Link to="/SignIn">Sign In</Link> </li>
                 <button onClick={() => setShow(true)}> Post a job offer! </button>
                 {/* check here if may existing client profile */}
                 {
