@@ -8,7 +8,7 @@ import BuildFreelancer from "./Pages/BuildFreelancer";
 import Jobs from "./Pages/Jobs";
 import SignIn from "./Pages/SignIn";
 import SignUp from "./Pages/SignUp";
-// import "./index.css";
+import "./index.css";
 
 function App() {
   return (

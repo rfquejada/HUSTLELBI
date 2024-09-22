@@ -1,3 +1,138 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom styles can go here */
+
+/* General styling for the app */
+body {
+    @apply bg-gray-100 font-sans text-gray-800;
+    padding: 0;
+    overflow-x: hidden; 
+    margin: 0;
+}
+
+/*sign up page*/
+.sign-upform {
+    @apply bg-[#E3BB2F] shadow-lg rounded-[40px] absolute; /* Background, shadow, rounded corners */
+    width: 652px; 
+    height: 737px; 
+    left: 16px; 
+    top: -10px; 
+    @apply flex flex-col items-center justify-center; /* Center items horizontally and vertically */
+    margin-top: 30px; 
+}
+
+.signup-container {
+    @apply bg-black shadow-lg px-6 py-4 flex flex-col items-start; /* Background, shadow, and padding */
+    width: 100%; 
+    height: 100vh; 
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    position: relative; 
+    background-image: url('./assets/Rectangle 6.png'); 
+    background-size: cover; 
+    background-position: center; 
+    box-sizing: border-box; 
+}
+
+.sign-uph {
+    @apply absolute w-[200px] h-[39px] left-[251px] top-[51px] text-[#0E0D0A] font-bold text-[40px] leading-[70px];
+}
+
+.become-a {
+    @apply absolute w-[547px] h-[46px] left-[864px] top-[40px] text-right text-[#FDFCFC] font-bold text-[60px] leading-[46px];
+}
+
+.hustlebee {
+    @apply absolute w-[467px] h-[97px] left-[864px] top-[86px] text-right text-[#E3BB2F] font-extrabold text-[90px] leading-[107px] italic;
+}
+
+.signupf {
+    @apply flex flex-col w-full px-24; 
+
+}
+
+.button-container {
+    @apply flex justify-center space-x-4 mt-4 w-full; 
+}
+
+label {
+    @apply block text-sm font-medium mb-2;
+}
+
+input {
+    @apply border border-[#E7E4D3] rounded-[12px] p-2 mb-4 w-full;
+}
+
+.sign-upbutton{
+    @apply bg-black text-white font-bold py-2 px-4 rounded-2xl focus:outline-none focus:ring focus:ring-blue-300;
+}
+
+.signup-button:hover {
+    @apply bg-black;
+}
+/*end*/
+
+/*build freelance profile*/
+.freelancer {
+    @apply absolute w-[800px] h-[97px] left-[614px] top-[86px] text-right text-[#E3BB2F] font-extrabold text-[70px] leading-[107px] italic;
+}
+
+.freelancer-upform {
+    @apply bg-[#E3BB2F] shadow-lg rounded-[40px] p-6 flex flex-col items-start; 
+    width: 652px; 
+}
+
+.freelancer-upform label {
+    @apply block text-sm font-bold text-gray-700 mt-4; 
+}
+
+.freelancer-upform input[type="text"],
+.freelancer-upform input[type="number"] {
+    @apply mt-1 block w-full p-2 border border-[#E7E4D3] rounded-[12px]; 
+}
+
+.checkbox-group {
+    @apply flex flex-wrap gap-6; 
+}
+
+.checkbox-group div {
+    @apply flex items-center; 
+}
+
+.checkbox-group input[type="checkbox"] {
+    @apply mr-3 mt-7; 
+}
+
+.checkbox-group label {
+    @apply font-bold; 
+}
+
+
+.availability-checkbox-group {
+    @apply flex flex-col gap-1 mt-2; 
+}
+
+.availability-checkbox-group div {
+    @apply flex items-center; 
+}
+
+.availability-checkbox-group input[type="checkbox"] {
+    @apply mr-3 mt-6; 
+}
+
+.availability-checkbox-group label {
+    @apply font-bold w-[150px] text-left ; 
+}
+
+.freelancer-upform button {
+    @apply bg-black text-white font-bold py-2 px-9 rounded-2xl focus:outline-none focus:ring focus:ring-blue-300;
+}
+
+/* Responsive styles */
+@media (min-width: 640px) {
+    .App {
+        @apply flex-row; /* Adjust layout on larger screens if needed */
+    }
+}
