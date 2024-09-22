@@ -12,7 +12,7 @@ function BuildFreelancer ()
     const [service_type, setServiceType] = useState([]);
     const [avail, setAvail] = useState([]);
     const uniqueServiceTypes = [...new Set(freelancers.flatMap(freelancer => freelancer.service_type))];
-    const availChoices = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    const availChoices = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
     const largestId = freelancers.reduce((maxId, freelancer) => Math.max(maxId, freelancer.id), 0);
     const navigate = useNavigate();
@@ -58,86 +58,87 @@ function BuildFreelancer ()
         navigate('/')
     }
     return(
-        <div>
-            <h1>Build your freelancer profile</h1>
+        <div className="signup-container">
+            <h1 className="become-a">Build your </h1>
+            <h1 className="freelancer">Freelancer Profile</h1>
 
-            <form onSubmit={e => handleSubmit(e, navigate)}>
+            <form onSubmit={e => handleSubmit(e, navigate)} className="freelancer-upform">
                 <div>
                     <label>Image URL:</label>
                     <input
-                    type="text"
-                    value={img}
-                    onChange={(e) => setImage(e.target.value)}
+                        type="text"
+                        value={img}
+                        onChange={(e) => setImage(e.target.value)}
                     />
                 </div>
-                
 
                 <div>
-                    <label>Age</label>
+                    <label>Age:</label>
                     <input
-                    type="number"
-                    value={age}
-                    onChange={(e) => setAge(e.target.value)}
+                        type="number"
+                        value={age}
+                        onChange={(e) => setAge(e.target.value)}
                     />
                 </div>
 
                 <div>
                     <label>Rate per hour:</label>
                     <input
-                    type="number"
-                    value={rate}
-                    placeholder="PHP xxx /hour"
-                    onChange={(e) => setRate(e.target.value)}
+                        type="number"
+                        value={rate}
+                        placeholder="PHP xxx /hour"
+                        onChange={(e) => setRate(e.target.value)}
                     />
                 </div>
 
                 <div>
-                    <label>Location</label>
+                    <label>Location:</label>
                     <input
-                    type="text"
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
+                        type="text"
+                        value={location}
+                        onChange={(e) => setLocation(e.target.value)}
                     />
                 </div>
 
                 <div>
-                    <label>Service Type(s): </label>
-                    {uniqueServiceTypes.map((type, index) => (
-                      <div key={index}>
-                        <input
-                          type="checkbox"
-                          value={type}
-                          onChange={handleCheckboxChange}
-                        />
-                        <label className="font-semibold mr-4">
-                          {type}
-                        </label>
-                      </div>
-                    ))}
+                    <label>Service Type(s):</label>
+                    <div className="checkbox-group">
+                        {uniqueServiceTypes.map((type, index) => (
+                            <div key={index} className="flex items-center">
+                                <input
+                                    type="checkbox"
+                                    value={type}
+                                    onChange={handleCheckboxChange}
+                                />
+                                <label className="font-semibold">{type}</label>
+                            </div>
+                        ))}
+                    </div>
                 </div>
+
                 <div>
-                    <label>Availability: </label>
-                    {availChoices.map((type, index) => (
-                      <div key={index}>
-                        <input
-                          type="checkbox"
-                          value={type}
-                          onChange={handleAvailChange}
-                        />
-                        <label className="font-semibold mr-4">
-                          {type}
-                        </label>
-                      </div>
-                    ))}
+                    <label>Availability:</label>
+                    <div className="availability-checkbox-group">
+                        {availChoices.map((type, index) => (
+                            <div key={index} className="flex items-center">
+                                <input
+                                    type="checkbox"
+                                    value={type}
+                                    onChange={handleAvailChange}
+                                />
+                                <label className="font-semibold">{type}</label>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-
-
+                <div className="button-container">
                 <button type="submit">
-                Create Account
-              </button>
-
+                    Create Account
+                </button>
+                </div>
             </form>
         </div>
+
     )
 }
 

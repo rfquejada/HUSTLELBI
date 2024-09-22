@@ -64,10 +64,12 @@ function SignUp () {
     }
 
     return (
-        <div>
-            <form onSubmit={e => handleSubmit(e, navigate)}>
+        <div className="signup-container">
+            <form onSubmit={e => handleSubmit(e, navigate)}className="sign-upform">
+                <h1 className="sign-uph">SIGN UP</h1>
+                <div className="signupf">
                 <div>
-                <label>Name:</label>
+                <label className="signup-label">Name:</label>
                     <input
                     type="text"
                     value={name}
@@ -76,7 +78,7 @@ function SignUp () {
                 </div>
 
                 <div>
-                    <label>Email:</label>
+                    <label className="signup-label">Email:</label>
                     <input
                     type="email"
                     value={email}
@@ -85,7 +87,7 @@ function SignUp () {
                 </div>
 
                 <div>
-                    <label>Contact:</label>
+                    <label className="signup-label">Contact:</label>
                     <input
                     type="text"
                     pattern="^09[0-9]{9}" placeholder="09XXXXXXXXX"
@@ -95,17 +97,21 @@ function SignUp () {
                 </div>
 
                 <div>
-                <label>Password:</label>
+                <label >Password:</label>
                     <input
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
-
-                <button type="submit" onClick={() => setFree(true)}>Freelancer</button>
-            <button type="submit" onClick={() => setCli(true)}>Client</button>
+                </div>
+                <div className="button-container">
+                <button type="submit" onClick={() => setFree(true)}className="sign-upbutton">Freelancer</button>
+            <button type="submit" onClick={() => setCli(true)}className="sign-upbutton">Client</button>
+            </div>
             </form>
+            <h1 className="become-a">BECOME A</h1>
+            <h1 className="hustlebee"> HUSTLEBEE!</h1>
             
         </div>
     )
