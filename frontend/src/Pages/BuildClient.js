@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useOutletContext, useNavigate } from "react-router-dom";
 
 import rectangleImage from '../assets/Rectangle 3.png'; 
