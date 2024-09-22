@@ -85,6 +85,7 @@ function Root ()
                 <li> <Link to="/SignUp">Sign Up</Link> </li>
                 <li> <Link to="/SignIn">SignIn</Link> </li>
                 <li> <Link to="/BuildFreelancer">BuildFreelancer</Link> </li>
+                <li> <Link to="/BuildClient">Buildclient</Link> </li>
                 <button onClick={() => setShow(true)}> Post a job offer! </button>
                 {/* check here if may existing client profile */}
                 {

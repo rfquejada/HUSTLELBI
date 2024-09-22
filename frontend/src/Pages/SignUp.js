@@ -3,26 +3,27 @@ import { useNavigate, useOutletContext } from "react-router-dom";
 
 function SignUp() {
     const { clients, freelancers, setFreelancers, setClients } = useOutletContext();
-    const [free, setFree] = useState(false);
-    const [cli, setCli] = useState(false);
+    const [isFreelancer, setIsFreelancer] = useState(true); // Toggle between Freelancer and Client
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [contact, setContact] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
-    const checkEmailValidity = (navigate) => {
+    const checkEmailValidity = () => {
         let check = email.slice(-10);
         if (check !== "@up.edu.ph") {
             alert("Please enter a valid UP email address");
-            navigate('/SignUp');
+            return false;
         }
+        return true;
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        checkEmailValidity(navigate);
-        if (free) {
+        if (!checkEmailValidity()) return;
+
+        if (isFreelancer) {
             const largestId = freelancers.reduce((maxId, freelancer) => Math.max(maxId, freelancer.id), 0);
             const new_freelancer = {
                 id: largestId + 1,
@@ -34,7 +35,7 @@ function SignUp() {
             setFreelancers([...freelancers, new_freelancer]);
             resetForm();
             navigate('/BuildFreelancer');
-        } else if (cli) {
+        } else {
             const largestId = clients.reduce((maxId, client) => Math.max(maxId, client.id), 0);
             const new_client = {
                 id: largestId + 1,
@@ -57,57 +58,111 @@ function SignUp() {
     };
 
     return (
-        <div className="bg-black shadow-lg px-6 py-4 flex flex-col items-start w-full h-screen overflow-y-auto overflow-x-hidden relative bg-cover bg-center" style={{ backgroundImage: "url('./assets/Rectangle 6.png')" }}>
-            <form onSubmit={handleSubmit} className="bg-[#E3BB2F] shadow-lg rounded-[40px] absolute w-[652px] h-[737px] left-[16px] top-[-10px] flex flex-col items-center justify-center mt-[30px]">
-                <h1 className="absolute w-[200px] h-[39px] left-[251px] top-[51px] text-[#0E0D0A] font-bold text-[40px] leading-[70px]">SIGN UP</h1>
-                <div className="flex flex-col w-full px-40">
-                    <div>
-                        <label className="block text-sm font-medium mb-2">Name:</label>
-                        <input
-                            type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            className="border border-[#E7E4D3] rounded-[12px] px-4 py-2 mb-4  w-full"
-
-
-                        />
-                    </div>
-                    <div>
-                        <label className="block text-sm font-medium mb-2">Email:</label>
-                        <input
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            className="border border-[#E7E4D3] rounded-[12px] p-2 mb-4 w-full"
-                        />
-                    </div>
-                    <div>
-                        <label className="block text-sm font-medium mb-2">Contact:</label>
-                        <input
-                            type="text"
-                            pattern="^09[0-9]{9}" placeholder="09XXXXXXXXX"
-                            value={contact}
-                            onChange={(e) => setContact(e.target.value)}
-                            className="border border-[#E7E4D3] rounded-[12px] p-2 mb-4 w-full"
-                        />
-                    </div>
-                    <div>
-                        <label className="block text-sm font-medium mb-2">Password:</label>
-                        <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            className="border border-[#E7E4D3] rounded-[12px] p-2 mb-4 w-full"
-                        />
-                    </div>
+        <div className="font-[sans-serif] h-full"
+            style={{
+                backgroundImage: "url('./assets/Rectangle 6.png')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                height: '100vh',
+                backgroundColor: "#474105",
+            }}
+        >
+            <div className="grid md:grid-cols-2 items-center h-full">
+                <div className="flex flex-col justify-end items-start p-8 h-full">
+                    <h1 className="text-4xl font-extrabold text-white">BECOME A</h1>
+                    <h1 className="text-6xl font-extrabold text-[#E3BB2F]">HUSTLEBEE!</h1>
                 </div>
-                <div className="flex justify-center space-x-4 mt-4 w-full">
-                    <button type="submit" onClick={() => setFree(true)} className="bg-black text-white font-bold py-2 px-4 rounded-2xl focus:outline-none focus:ring focus:ring-blue-300">Freelancer</button>
-                    <button type="submit" onClick={() => setCli(true)} className="bg-black text-white font-bold py-2 px-4 rounded-2xl focus:outline-none focus:ring focus:ring-blue-300">Client</button>
+
+                <div className="flex items-center md:p-8 p-6 bg-white md:rounded-tl-[55px] md:rounded-bl-[55px] h-full" style={{ backgroundColor: "#1E1E1E" }}>
+                    <form className="max-w-lg w-full mx-auto" onSubmit={handleSubmit}>
+                        <h3 className="text-4xl font-extrabold text-[#E3BB2F] text-center mb-6">SIGN UP</h3>
+
+                        <div className="mb-4">
+                            <label className="text-xs block mb-2 text-[#E3BB2F]">Name</label>
+                            <input
+                                type="text"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                required
+                                className="w-full text-sm border-b border-gray-300 focus:border-gray-800 px-2 py-3 outline-none"
+                                placeholder="Enter your name"
+                            />
+                        </div>
+
+                        <div className="mb-4">
+                            <label className="text-xs block mb-2 text-[#E3BB2F]">Email</label>
+                            <input
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                                className="w-full text-sm border-b border-gray-300 focus:border-gray-800 px-2 py-3 outline-none"
+                                placeholder="Enter your email"
+                            />
+                        </div>
+
+                        <div className="mb-4">
+                            <label className="text-xs block mb-2 text-[#E3BB2F]">Contact</label>
+                            <input
+                                type="text"
+                                pattern="^09[0-9]{9}" placeholder="09XXXXXXXXX"
+                                value={contact}
+                                onChange={(e) => setContact(e.target.value)}
+                                required
+                                className="w-full text-sm border-b border-gray-300 focus:border-gray-800 px-2 py-3 outline-none"
+                            />
+                        </div>
+
+                        <div className="mb-4">
+                            <label className="text-xs block mb-2 text-[#E3BB2F]">Password</label>
+                            <input
+                                type="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                                className="w-full text-sm border-b border-gray-300 focus:border-gray-800 px-2 py-3 outline-none"
+                                placeholder="Enter your password"
+                            />
+                        </div>
+
+                        {/* Toggle buttons for Freelancer or Client */}
+                        <div className="flex justify-center space-x-4 mt-4 w-full">
+                            <button
+                                type="button"
+                                onClick={() => setIsFreelancer(true)}
+                                className={`w-full py-3 px-6 text-sm font-semibold tracking-wider rounded-full text-white ${
+                                    isFreelancer ? 'bg-[#E3BB2F]' : 'bg-gray-400'
+                                } hover:bg-[#d6a73f]`}
+                            >
+                                Freelancer
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => setIsFreelancer(false)}
+                                className={`w-full py-3 px-6 text-sm font-semibold tracking-wider rounded-full text-white ${
+                                    !isFreelancer ? 'bg-[#E3BB2F]' : 'bg-gray-400'
+                                } hover:bg-[#d6a73f]`}
+                            >
+                                Client
+                            </button>
+                        </div>
+
+                        {/* Sign Up button */}
+                        <button
+                            type="submit"
+                            className="w-full py-3 px-6 mt-6 text-sm font-semibold tracking-wider rounded-full text-white bg-[#E3BB2F] hover:bg-[#d6a73f]"
+                        >
+                            Sign Up
+                        </button>
+
+                        <p className="text-white text-sm mt-4 text-center">
+                            Already have an account?
+                            <a href="/SignIn" className="text-[#E3BB2F] font-semibold hover:underline ml-1 whitespace-nowrap">Sign In Here</a>
+                        </p>
+                    </form>
                 </div>
-            </form>
-            <h1 className="absolute w-[547px] h-[46px] right-[100px] top-[40px] text-right text-[#FDFCFC] font-bold text-[60px] leading-[46px]">BECOME A</h1>
-            <h1 className="absolute w-[467px] h-[97px] right-[150px] top-[86px] text-right text-[#E3BB2F] font-extrabold text-[90px] leading-[107px] italic">HUSTLEBEE!</h1>
+            </div>
         </div>
     );
 }
