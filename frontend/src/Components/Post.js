@@ -19,6 +19,8 @@ function Post (props)
     const [location, setLocation] = useState("")
     const difficultyChoice = ["easy", "medium", "hard"]
 
+    const today = new Date();
+    const formattedToday = today.toISOString().split('T')[0]; 
     const navigate = useNavigate();
     const handleSubmit = async(event, navigate) => {
         event.preventDefault();
@@ -58,109 +60,152 @@ function Post (props)
         setShow(false)
     }
 
-    const handleCheckboxChange = (event) => {
-        const value = event.target.value;
-        setType((prevType) =>
-          prevType.includes(value)
-            ? prevType.filter((type) => type !== value)
-            : [...prevType, value]
-        );
-      };
+    const handleTypeToggle = (selectedType) => {
+      setType((prevType) =>
+        prevType.includes(selectedType)
+          ? prevType.filter((t) => t !== selectedType)
+          : [...prevType, selectedType]
+      );
+    };
 
-      const handleDifficultyChange = (e) => {
-        setDifficulty(e.target.value);
-      };
+    const handleDifficultyChange = (e) => {
+      setDifficulty(e.target.value);
+    };
+
+      
     return (
       <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-      <div className="bg-orange-50 rounded-lg p-6 w-full max-h-xl max-w-3xl">
-      <div className="flex justify-between items-center mb-4">
-            <h1>Post a Job</h1>
-            <form onSubmit={e => handleSubmit(e, navigate)}>
-                <div>
-                    <label>Title:</label>
-                    <input
-                    type="text"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    />
-                </div>
+        <div className="bg-yellow-400 text-black rounded-3xl p-8 w-full max-w-xl shadow-xl flex flex-col items-center">
+          <h1 className="text-3xl font-bold mb-6 text-center">OFFER JOB TO HUSTLEBEES</h1>
 
-                <div>
-                    <label>Details:</label>
-                    <textarea
-                    type="textarea"
-                    value={details}
-                    onChange={(e) => setDetails(e.target.value)}
-                    > </textarea>
-                </div>
+          <form onSubmit={e => handleSubmit(e, navigate)} className="w-full">
+            {/* Job Title */}
+            <div className="mb-4">
+              <input
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                className="w-full p-4 border border-gray-400 rounded-3xl"
+                placeholder="Enter job title"
+              />
+            </div>
 
-                <div>
-                    <label>Job Type(s): </label>
-                    {uniqueServiceTypes.map((type, index) => (
-                      <div key={index}>
-                        <input
-                          type="checkbox"
-                          value={type}
-                          onChange={handleCheckboxChange}
-                        />
-                        <label className="font-semibold mr-4">
-                          {type}
-                        </label>
-                      </div>
-                    ))}
-                </div>
+            {/* Job Description */}
+            <div className="mb-4">
+              <textarea
+                value={details}
+                onChange={(e) => setDetails(e.target.value)}
+                className="w-full p-4 border border-gray-400 rounded-3xl"
+                placeholder="Describe your offer"
+              ></textarea>
+            </div>
 
-            <div className=" text-xl pb-4">
-              <label className="font-bold mr-4">Difficulty: </label>
-              <select
-                value={difficulty}
-                className="border py-1 border-sky-950 rounded-full "
-                onChange={handleDifficultyChange}
-              >
-                <option value="" disabled>
-                  Select a difficulty
-                </option>
-                {difficultyChoice.map((diff, index) => (
-                  <option key={index} value={diff}>
-                    {diff}
-                  </option>
+            {/* Job Types */}
+            <div className="mb-4">
+              <label className="block font-bold mb-2 text-center">TYPES:</label>
+              <div className="flex justify-center space-x-4">
+                {uniqueServiceTypes.map((serviceType, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    onClick={() => handleTypeToggle(serviceType)}
+                    className={`px-4 py-2 rounded-3xl ${
+                      type.includes(serviceType)
+                        ? "bg-yellow-500 text-black"
+                        : "bg-gray-800 text-white"
+                    } transition`}
+                  >
+                    {serviceType}
+                  </button>
                 ))}
-              </select>
+              </div>
             </div>
 
-                <div>
-                    <label>Requirements: </label>
-                    <input
-                    type="text"
-                    value={requirements}
-                    onChange={(e) => setRequirements(e.target.value)}
-                    />
-                </div>
-
-                <div>
-                    <label>Date of Job: </label>
-                    <input
-                    type="date"
-                    value={date}
-                    onChange={(e) => setDate(e.target.value)}
-                    />
-                </div>
-
-                <div>
-                    <label>Location: </label>
-                    <input
-                    type="text"
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
-                    />
-                </div>
-
-                <button type="submit">Submit post</button>
-                <button onClick={() => handleCancel()}> Cancel</button>
-            </form>
+            {/* Date and Location */}
+            <div className="flex justify-between mb-4">
+              <div className="w-1/2 mr-2">
+                <input
+                  type="date"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                  className="w-full p-4 border border-gray-400 rounded-3xl"
+                  min={formattedToday}
+                />
+              </div>
+              <div className="w-1/2 ml-2">
+                <input
+                  type="text"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                  className="w-full p-4 border border-gray-400 rounded-3xl"
+                  placeholder="Enter location"
+                />
+              </div>
             </div>
+
+            {/* Requirements */}
+            <div className="mb-4">
+              <input
+                type="text"
+                value={requirements}
+                onChange={(e) => setRequirements(e.target.value)}
+                className="w-full p-4 border border-gray-400 rounded-3xl"
+                placeholder="Enter requirements"
+              />
+            </div>
+
+            {/* Difficulty Buttons */}
+            <div className="mb-6 text-center">
+              <label className="block font-bold mb-2">DIFFICULTY:</label>
+              <div className="flex justify-center space-x-4">
+                {/* Easy Button */}
+                <button
+                  type="button"
+                  className={`px-4 py-2 rounded-3xl ${difficulty === 'easy' ? 'bg-green-600 text-white' : 'bg-gray-800 text-white'} transition`}
+                  onClick={() => setDifficulty('easy')}
+                >
+                  Easy
+                </button>
+
+                {/* Medium Button */}
+                <button
+                  type="button"
+                  className={`px-4 py-2 rounded-3xl ${difficulty === 'medium' ? 'bg-yellow-500 text-white' : 'bg-gray-800 text-white'} transition`}
+                  onClick={() => setDifficulty('medium')}
+                >
+                  Medium
+                </button>
+
+                {/* Hard Button */}
+                <button
+                  type="button"
+                  className={`px-4 py-2 rounded-3xl ${difficulty === 'hard' ? 'bg-red-600 text-white' : 'bg-gray-800 text-white'} transition`}
+                  onClick={() => setDifficulty('hard')}
+                >
+                  Hard
+                </button>
+              </div>
+            </div>
+
+            {/* Buttons */}
+            <div className="flex justify-center space-x-4">
+              <button
+                type="submit"
+                className="bg-green-600 text-white px-6 py-2 rounded-3xl shadow hover:bg-green-700 transition"
+              >
+                Post
+              </button>
+              <button
+                type="button"
+                onClick={handleCancel}
+                className="bg-red-600 text-white px-6 py-2 rounded-3xl shadow hover:bg-red-700 transition"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
         </div>
-        </div>
+      </div>
     )
 }
 
