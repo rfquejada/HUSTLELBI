@@ -82,7 +82,7 @@ function Root ()
             email: "hhh@up.edu.ph",
             contact: "091111111111",
             average_rating: 0,
-            img: './images/roche.jpg',
+            img: null,
             history: [1],
         }
     ]);
@@ -103,7 +103,8 @@ function Root ()
             date: "2024-09-15",
             date_posted: "2024-09-07",
             location: "UPLB CAS OCS",
-            completed: true
+            completed: true,
+            forOffering: true,
         },
 
         {
@@ -119,7 +120,83 @@ function Root ()
             location: "UPLB CAS OCS",
             completed: false,
             forOffering: true, 
-        }
+        },
+
+        {
+            id: 3,
+            title: "Submit my documents at CAS OCS",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent consectetur scelerisque commodo. Ut efficitur ipsum libero, ut congue nisl maximus non. Cras molestie lacus ac sem auctor, eget hendrerit ipsum rutrum. Fusce mollis ullamcorper purus non cursus. Cras consectetur odio vitae leo ornare, sed accumsan purus condimentum. ",
+            ClientReview: "Lorem ipsum",
+            type: ["errands"],
+            clientId: 1,
+            freelancerId: 1,
+            ratingFree: 5,
+            ratingClient:5,
+            difficulty: "Easy",
+            requirements: "",
+            date: "2024-09-15",
+            date_posted: "2024-09-07",
+            location: "UPLB CAS OCS",
+            completed: true,
+            forOffering: true,
+        },
+
+        {
+            id: 4,
+            title: "Submit my documents at CAS OCS",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent consectetur scelerisque commodo. Ut efficitur ipsum libero, ut congue nisl maximus non. Cras molestie lacus ac sem auctor, eget hendrerit ipsum rutrum. Fusce mollis ullamcorper purus non cursus. Cras consectetur odio vitae leo ornare, sed accumsan purus condimentum. ",
+            ClientReview: "Lorem ipsum",
+            type: ["errands"],
+            clientId: 1,
+            freelancerId: 1,
+            ratingFree: 5,
+            ratingClient:5,
+            difficulty: "Easy",
+            requirements: "",
+            date: "2024-09-15",
+            date_posted: "2024-09-07",
+            location: "UPLB CAS OCS",
+            completed: true,
+            forOffering: true,
+        },
+
+        {
+            id: 5,
+            title: "Submit my documents at CAS OCS",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent consectetur scelerisque commodo. Ut efficitur ipsum libero, ut congue nisl maximus non. Cras molestie lacus ac sem auctor, eget hendrerit ipsum rutrum. Fusce mollis ullamcorper purus non cursus. Cras consectetur odio vitae leo ornare, sed accumsan purus condimentum. ",
+            ClientReview: "Lorem ipsum",
+            type: ["errands"],
+            clientId: 1,
+            freelancerId: 1,
+            ratingFree: 5,
+            ratingClient:5,
+            difficulty: "Easy",
+            requirements: "",
+            date: "2024-09-15",
+            date_posted: "2024-09-07",
+            location: "UPLB CAS OCS",
+            completed: true,
+            forOffering: true,
+        },
+
+        {
+            id: 6,
+            title: "Submit my documents at CAS OCS",
+            details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent consectetur scelerisque commodo. Ut efficitur ipsum libero, ut congue nisl maximus non. Cras molestie lacus ac sem auctor, eget hendrerit ipsum rutrum. Fusce mollis ullamcorper purus non cursus. Cras consectetur odio vitae leo ornare, sed accumsan purus condimentum. ",
+            ClientReview: "Lorem ipsum",
+            type: ["errands"],
+            clientId: 1,
+            freelancerId: 1,
+            ratingFree: 5,
+            ratingClient:5,
+            difficulty: "Easy",
+            requirements: "",
+            date: "2024-09-15",
+            date_posted: "2024-09-07",
+            location: "UPLB CAS OCS",
+            completed: true,
+            forOffering: true,
+        },
     ]);
     
 
