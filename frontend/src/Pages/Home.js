@@ -6,7 +6,7 @@ function Home() {
     return (
         <div className="bg-[#E9E6C7] min-h-screen flex flex-col justify-center items-center">
             {/* Grid of Freelancers */}
-            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-10 mt-8 mx-12">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-10 mt-8 mx-12 my-12">
                 {freelancers.map((user) => {
                     return (
                         <div className="flex w-full p-6 max-w-md flex-col rounded-3xl shadow-md" style={{ backgroundColor: '#1E1E1E' }}>
