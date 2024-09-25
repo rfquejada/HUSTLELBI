@@ -15,11 +15,19 @@ The website requires freelancers and clients to publicly display ratings and rev
 
 ## Developers
 Quejada, Roche F. (rfquejada@up.edu.ph)
+
 Arcedera, Psymon Sez E. (pearcedera@up.edu.ph)
+
 Bautista, John Emy L. (jlbautista7@up.edu.ph)
+
 Capule, Beatrice Elaine Z. (bzcapule@up.edu.ph)
+
 Lleva, Cazhia Reese (clleva@up.edu.ph)
+
 Matira, Eron Jay H. (ehmatira@up.edu.ph)
+
 Mendoza, Marc Joemil P. (mpmendoza6@up.edu.ph)
+
 Merdegia, Sebastian (spmerdegia@up.edu.ph)
+
 Par, Cyrus Gello M. (cmpar@up.edu.ph)
