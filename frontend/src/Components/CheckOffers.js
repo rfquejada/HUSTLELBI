@@ -23,7 +23,7 @@ function CheckOffers (props) {
 
         setJobPostings((currentJobList) =>{
             const updateList = [...currentJobList]
-            updateList[i] = {...updateList[i],freelancerId: of.freelancerId}
+            updateList[i] = {...updateList[i],freelancerId: of.freelancerId, rate: of.rate}
             updateList[i].offerTo = false 
             return updateList
         })

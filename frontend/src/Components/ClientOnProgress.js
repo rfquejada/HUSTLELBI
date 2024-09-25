@@ -6,6 +6,7 @@ function ClientOnProgress (props)
 {
     const jobPostings = props.jobPostings
     const setJobPostings = props.setJobPostings
+    const setFreelancers = props.setFreelancers
     const freelancers = props.freelancers
     const userId = props.user 
    const [onProgress, setOnProgress] = useState([])
@@ -49,7 +50,7 @@ function ClientOnProgress (props)
                                 <h3 className="text-sm text-yellow-100">Freelancer: {freelancer.name}</h3>
                                 <button onClick={()=> setShowArchive(job.id)}className="bg-yellow-400 hover:bg-yellow-300 text-black py-2 px-4 rounded-md mt-5">Archive this job</button>
                                 {
-                                    showArchive === job.id ? <Archive show={setShowArchive} jobPostings= {jobPostings} setJobPostings={setJobPostings} job={job}/> : null
+                                    showArchive === job.id ? <Archive show={setShowArchive} freelancers = {freelancers} setFreelancers = {setFreelancers}jobPostings= {jobPostings} setJobPostings={setJobPostings} job={job}/> : null
                                 }
                             </div>
                             
