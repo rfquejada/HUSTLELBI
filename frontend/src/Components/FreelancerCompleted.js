@@ -6,6 +6,7 @@ function FreelancerCompleted(props) {
     const jobPostings = props.jobPostings;
     const setJobPostings = props.setJobPostings;
     const clients = props.clients;
+    const setClient = props.setClient;
     const fHistory = props.fHistory;
     const [showWrite, setShowWriteReview] = useState(null);
 
@@ -60,6 +61,8 @@ function FreelancerCompleted(props) {
                                                     jobPostings={jobPostings} 
                                                     setJobPostings={setJobPostings} 
                                                     job={job} 
+                                                    clients = {clients}
+                                                    setClient = {setClient}
                                                 />
                                             )}
                                         </div>
