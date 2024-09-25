@@ -20,45 +20,56 @@ function OfferList (props)
     }, [userId])
 
     return(
-        <div>
+        <div className="mt-4 flex flex-col space-y-4">
+            <div className="overflow-y-auto h-[400px]"> {/* Set a fixed height and overflow */}
         {
             awaiting.map((job) => {
                 const freelancer = freelancers.find(fl => fl.id === job.offerTo);
                 return(    
-                <>
+                    <div 
+                    className="flex w-full p-6 rounded-3xl mb-4" // Added mb-4 for margin between cards
+                    style={{ backgroundColor: '#1E1E1E' }} 
+                    key={job.id}
+                    >
+                    <div className="flex space-x-4">
+                    <>
+                    
                     {job.offerTo ? (
-                        <>
-                        <h1>{job.title}</h1>
-                        <p>Date Posted: {job.date_posted}</p>
-                        <h3>Offered to: {freelancer?.name}</h3>
+                        < div className="flex-grow text-yellow-400">
+                        <h1 className="text-2xl font-bold">{job.title}</h1>
+                        <p className="text-m text-yellow-100">Date Posted: {job.date_posted}</p>
+                        <h3 className="text-m text-yellow-100">Offered to: {freelancer?.name}</h3>
                         {!job.rejected ? (
                         <div>
-                            <p>Awaiting response from freelancer</p>
+                            <p  className="text-yellow-200">Awaiting response from freelancer</p>
                         </div>
                         ) : (
-                            <p>Sorry. The job has been rejected. </p>
+                            <p className="text-yellow-200">Sorry. The job has been rejected. </p>
                         )}
-                        </>
+                        </div>
                     ) : (
-                        <div>
-                            <h1>{job.title}</h1>
-                            <p>Date Posted: {job.date_posted}</p>
+                        <div className="flex-grow text-yellow-400">
+                            <h1 className="text-2xl font-bold">{job.title}</h1>
+                            <p className="text-sm text-yellow-100">Date Posted: {job.date_posted}</p>
                             {
                                 job.offers ? (
                                     <>
-                                    <button onClick={() => setShowOffers(job.id)}> Show Offers </button>
+                                    <button onClick={() => setShowOffers(job.id)} className="bg-yellow-400 hover:bg-yellow-300 text-black py-2 px-4 rounded-md mt-5 "> Show Offers </button>
                                     {
                                         showOffers === job.id ? <CheckOffers show = {setShowOffers} freelancers = {freelancers} jobPostings = {jobPostings} setJobPostings={setJobPostings} job={job} /> : null
                                     }
                                     </>
-                                ): <p>No existing offers</p>
+                                ): <p className="text-yellow-200">No existing offers</p>
                             }
                         </div>
                     )}
-                </>
+                    </>
+                    </div>
+                    </div>
                 )
             })
         }
+        </div>
         </div>
         
     )
