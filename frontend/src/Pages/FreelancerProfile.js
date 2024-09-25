@@ -13,6 +13,7 @@ function FreelancerProfile(props) {
     const setJobPostings = props.setJobPostings;
     const fHistory = props.fHistory;
     const clients = props.clients;
+    const setClient = props.setClient;
     const [showCompleted, setShowCompleted] = useState(true);
     const [showOffers, setShowOffers] = useState(false);
 
@@ -151,6 +152,7 @@ function FreelancerProfile(props) {
                         jobPostings={jobPostings}
                         clients={clients}
                         fHistory={fHistory}
+                        setClient={setClient}
                     />
                 ) : null}
 

@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Post from "../Components/Post";
 import logoImage from '../assets/HUST__2_-removebg-preview 2.png';
 
@@ -81,7 +81,7 @@ function Root ()
             password: "password",
             email: "hhh@up.edu.ph",
             contact: "091111111111",
-            average_rating: 0,
+            // average_rating: 0,
             img: null,
             history: [1],
         }
@@ -96,8 +96,8 @@ function Root ()
             type: ["errands"],
             clientId: 1,
             freelancerId: 1,
-            ratingFree: 5,
-            ratingClient:5,
+            // ratingFree: 5,
+            // ratingClient:5,
             difficulty: "Easy",
             requirements: "",
             date: "2024-09-15",
@@ -130,8 +130,8 @@ function Root ()
             type: ["errands"],
             clientId: 1,
             freelancerId: 1,
-            ratingFree: 5,
-            ratingClient:5,
+            // ratingFree: 5,
+            // ratingClient:5,
             difficulty: "Easy",
             requirements: "",
             date: "2024-09-15",
@@ -149,8 +149,8 @@ function Root ()
             type: ["errands"],
             clientId: 1,
             freelancerId: 1,
-            ratingFree: 5,
-            ratingClient:5,
+            // ratingFree: 5,
+            // ratingClient:5,
             difficulty: "Easy",
             requirements: "",
             date: "2024-09-15",
@@ -168,8 +168,8 @@ function Root ()
             type: ["errands"],
             clientId: 1,
             freelancerId: 1,
-            ratingFree: 5,
-            ratingClient:5,
+            // ratingFree: 5,
+            // ratingClient:5,
             difficulty: "Easy",
             requirements: "",
             date: "2024-09-15",
@@ -187,8 +187,8 @@ function Root ()
             type: ["errands"],
             clientId: 1,
             freelancerId: 1,
-            ratingFree: 5,
-            ratingClient:5,
+            // ratingFree: 5,
+            // ratingClient:5,
             difficulty: "Easy",
             requirements: "",
             date: "2024-09-15",
