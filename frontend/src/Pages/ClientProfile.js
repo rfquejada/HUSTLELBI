@@ -6,6 +6,7 @@ import OfferList from '../Components/OfferList';
 function ClientProfile(props) {
     const jobPostings = props.jobPostings;
     const setJobPostings = props.setJobPostings;
+    const setFreelancers = props.setFreelancers;
     const freelancers = props.freelancers;
     const user = props.user;
     const cHistory = props.cHistory;
@@ -87,7 +88,7 @@ function ClientProfile(props) {
             {/* ClientCompleted, ClientOnProgress, and OfferList Components */}
             <div className="mt-4">
                 {showCompleted && <ClientCompleted freelancers={freelancers} clientJobs={cHistory} />}
-                {showInProgress && <ClientOnProgress user={user.client.id} freelancers={freelancers} jobPostings={jobPostings} setJobPostings={setJobPostings} />}
+                {showInProgress && <ClientOnProgress user={user.client.id} setFreelancers = {setFreelancers} freelancers={freelancers} jobPostings={jobPostings} setJobPostings={setJobPostings} />}
                 {showAwaiting && <OfferList user={user.client.id} freelancers={freelancers} jobPostings={jobPostings} setJobPostings={setJobPostings} />}
             </div>
         </div>

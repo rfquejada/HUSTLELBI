@@ -6,7 +6,7 @@ import ClientProfile from "./ClientProfile";
 
 function Profile() {
     let { id } = useParams();
-    const { clients, freelancers, jobPostings, setJobPostings, signedInUser, uniqueServiceTypes, setClients } = useOutletContext();
+    const { clients, freelancers, jobPostings, setJobPostings, signedInUser, uniqueServiceTypes, setClients, setFreelancers } = useOutletContext();
     const [user, setUser] = useState({ freelancer: null, client: null });
     const [show, setShow] = useState(true);
     const [fHistory, setfHistory] = useState([]);
@@ -72,6 +72,7 @@ function Profile() {
                             setJobPostings={setJobPostings}
                             clients={clients}
                             freelancers={freelancers}
+                            setFreelancers = {setFreelancers}
                             cHistory={cHistory}
                             user={user}
                         />
@@ -99,6 +100,7 @@ function Profile() {
                         setJobPostings={setJobPostings}
                         clients={clients}
                         freelancers={freelancers}
+                        setFreelancers = {setFreelancers}
                         cHistory={cHistory}
                         user={user}
                     />
