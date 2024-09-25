@@ -95,7 +95,7 @@ function Post (props)
               <textarea
                 value={details}
                 onChange={(e) => setDetails(e.target.value)}
-                className="w-full p-4 border border-gray-400 rounded-3xl"
+                className="w-full p-4 border border-gray-400 rounded-3xl background-color:white"
                 placeholder="Details"
               ></textarea>
             </div>

@@ -1,23 +1,51 @@
 # HUSTLELBI
-not yet settled:
-1. Sign In Page (try this yourself)
-2. Dynamically compute average rating per published review for both client and freelancer
-3. Include the rate of the job in the information displayed. This should be optional for the user. Also include a rate field in the forms: `Post.js` and `OfferJob.js`
-4. Handle required form fields. Add placeholders, fix wording etc. 
-5. Implement "semi-auth":
-    - Per sign in, the ID of the user should be updated using setSignedInUser (this should also work for sign up)
-    - Currently, the id: 1 for user and client are different people, this should not be the case. One user should be associated to one id. It is only done this way for easier testing. Therefore, when a user signs up as freelancer, and wants to post a job, building a client profile is necessary. This should also work vice versa.
-    - If a user is signed in, they should not see the `offer job` button on their own profile page. 
-    - Only signed in users can access their `in progress` and `awaiting` tab as client and `direct offers` tab as freelancer
+Hustlelbi connects UPLB iskolars with opportunities to earn from fellow constituents searching for high-quality sideline work. In this platform, clients can post job offers publicly for freelancers to offer their services or directly hire someone based on a freelancer’s profile. Whether it’s a student needing that extra income or a client needing that extra help, Hustlelbi is a platform exclusive for UPLB only— offering secure sideline job connections with less hassle and more hustle! 
 
-### Important Notes: 
-1. run `npm install` to install all necessary modules. this should also take care of the Tailwind set up. 
-2. If you don't have node JS, I assume you would be using WSL, installation can be found here: https://github.com/nvm-sh/nvm#installing-and-updating, restart terminal, run `nvm install stable`
-3. in case tailwind does not automatically render you should be able to find instructions here: https://tailwindcss.com/docs/guides/create-react-app
-4. uncomment `import "./index.css";` to enable Tailwind, enabling Tailwind strips off all styling from HTML so it can be confusing if pushed like this
-5. add dummy data 
-6. all UI logic should be working right now, contact [@cazhiareese] if you have questions
-7. you can always fix and modify the rendered data, it should be understandable enough using basic HTML, just don't modify the functions
-8. check `./Components/Post.js` to know how to render a dialog box using Tailwind. The principle should be the same, the dialog box will close when cancel is clicked. 
+## Core Features
+### Authentication
+Users can sign up both as a client or as a freelancer. However, to provide exclusivity and security, this website is specific only for UPLB constituents. Therefore, user authentication using UP mail is needed to verify that a user is a bonafide member of the university. 
+### Profile Customization (for freelancers)
+Users who primarily sign up as freelancers can create a freelancer profile containing their personal and professional information. Aside from personal details, freelancers can provide information about usual service rates, service type, and usual availability.  
+### Job Postings
+Clients can post job offers publicly where information about a job is provided— the task description, job type, budget (optional), difficulty, requirements, and location. The budget detail is optional since clients can choose based on the service offers (with preferred rates) they receive from interested freelancers. 
+### Make Direct Job Offers
+When a client does not want to make a public job posting and instead wants to hire a specific freelancer based on their profile, they can directly send a job offer to the freelancer they want to hire. On the other hand, freelancers can easily accept or reject a job given similar details as when a job is publicly posted. 
+### Verify Credibility
+The website requires freelancers and clients to publicly display ratings and reviews from an accomplished job. These ratings contribute to a user's average rating— higher rating means higher credibility. Completed jobs are recorded and displayed as part of a user's associated history, which is displayed on their profile.
 
-Thank you! Good luck HUSTLELBI! 
+## Guide
+1. Clone the repository:
+```sh
+git clone https://github.com/rfquejada/HUSTLELBI
+```
+2. Navigate to the frontend directory:
+```sh
+cd frontend
+```
+3. Retrieve all the dependencies and packages:
+```sh
+npm install
+```
+4. Start and run the website:
+```sh
+npm start
+```
+
+## Developers
+Quejada, Roche F. (rfquejada@up.edu.ph)
+
+Arcedera, Psymon Sez E. (pearcedera@up.edu.ph)
+
+Bautista, John Emy L. (jlbautista7@up.edu.ph)
+
+Capule, Beatrice Elaine Z. (bzcapule@up.edu.ph)
+
+Lleva, Cazhia Reese (clleva@up.edu.ph)
+
+Matira, Eron Jay H. (ehmatira@up.edu.ph)
+
+Mendoza, Marc Joemil P. (mpmendoza6@up.edu.ph)
+
+Merdegia, Sebastian (spmerdegia@up.edu.ph)
+
+Par, Cyrus Gello M. (cmpar@up.edu.ph)
