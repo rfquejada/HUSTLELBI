@@ -13,6 +13,24 @@ When a client does not want to make a public job posting and instead wants to hi
 ### Verify Credibility
 The website requires freelancers and clients to publicly display ratings and reviews from an accomplished job. These ratings contribute to a user's average rating— higher rating means higher credibility. Completed jobs are recorded and displayed as part of a user's associated history, which is displayed on their profile.
 
+## Guide
+1. Clone the repository:
+```sh
+git clone https://github.com/rfquejada/HUSTLELBI
+```
+2. Navigate to the frontend directory:
+```sh
+cd frontend
+```
+3. Retrieve all the dependencies and packages:
+```sh
+npm install
+```
+4. Start and run the website:
+```sh
+npm start
+```
+
 ## Developers
 Quejada, Roche F. (rfquejada@up.edu.ph)
 
