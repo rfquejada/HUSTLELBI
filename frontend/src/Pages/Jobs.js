@@ -13,7 +13,7 @@ function Jobs() {
       <div className="flex-grow px-16 py-4"> {/* flex-grow to ensure it takes up available space */}
         {jobPostings.map((job) => {
           const client = clients.find(client => client.id === job.clientId);
-          return job.forOffering ? (
+          return !job.completed && job.forOffering ? (
             <div className="flex w-full p-6 max-w flex-col rounded-3xl" style={{ backgroundColor: '#1E1E1E' }} key={job.id}>
               
               {/* Profile and client details */}

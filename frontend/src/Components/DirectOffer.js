@@ -9,8 +9,8 @@ function DirectOffer (props)
     const [offers, setOffers] = useState([])
     const show = props.show
 
-    // const [showMessageAccept, setShowMessageAccept] = useState(null) 
-    // const [showMessageReject, setShowMessageReject] = useState(null) 
+    const [showMessageAccept, setShowMessageAccept] = useState(null) 
+    const [showMessageReject, setShowMessageReject] = useState(null) 
     const accessOffers = (userId) => {
         const offersList = jobs.filter((job) => {
             return !job.freelancerId && job.offerTo  === userId})
@@ -36,7 +36,7 @@ function DirectOffer (props)
             return updateList
         })
 
-        // setShowMessageAccept(job.id)
+        setShowMessageAccept(job.id)
 
     }
 
@@ -55,7 +55,7 @@ function DirectOffer (props)
             updateList[i] = {...updateList[i],rejected: true}
             return updateList
         })
-        // setShowMessageReject(job.id)
+        setShowMessageReject(job.id)
     }
     return(
         <div  className="mt-4 flex flex-col space-y-4">
@@ -86,7 +86,7 @@ function DirectOffer (props)
                             <h1 className="text-2xl font-bold">{job.title}</h1>
                             <h3 className="text-m text-yellow-100">Details: {job.details}</h3>
                             <p className="text-m text-yellow-100">Date posted: {job.date_posted}</p>
-                            <h5 className="text-m text-yellow-100">Offered by: {client ? client.name: "Unregisterd"}</h5>
+                            <h5 className="text-m text-yellow-100">Offered by: {client ? client.name: "Unregistered"}</h5>
                             <h5 className="text-m text-yellow-100">Type(s): </h5>
                             {
                                 job.type.map((t) => {
@@ -102,7 +102,7 @@ function DirectOffer (props)
                             <p  className="text-m text-yellow-100">Location: {job.location}</p> 
 
                            
-                            <div className="space-x-5 space-y-5">
+                            {(!showMessageAccept || !showMessageReject) && (<div className="space-x-5 space-y-5">
                             <button
                                 onClick={() => {
                                 handleAccept(job);
@@ -115,7 +115,17 @@ function DirectOffer (props)
                                 }}className="bg-yellow-400 hover:bg-yellow-300 text-black py-2 px-4 rounded-md">
                                 Reject
                             </button>
-                            </div>
+                            </div>)}
+
+                            {
+                                showMessageAccept == job.id && <p className="text-m text-yellow-100">You accepted this offer. </p>
+                            }
+
+                            {
+                                showMessageReject == job.id && <p className="text-m text-yellow-100">You rejected this offer</p>
+                            }
+
+
                             </div>
                         </div>
                         <div className="my-3 flex items-center">

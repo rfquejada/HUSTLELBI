@@ -20,6 +20,7 @@ function ClientProfile(props) {
                 {/* Left Container */}
                 <div className="flex flex-col items-center bg-[#1E1E1E] p-4 rounded-3xl shadow-md w-1/3 h-2/3 mr-4">
                     <img
+                        src={user.client.img ? user.client.img : "https://www.seekpng.com/png/detail/966-9665317_placeholder-image-person-jpg.png"}
                         alt="Client Profile"
                         className="w-44 h-44 rounded-xl object-cover mt-4 mb-2 border-4 border-yellow-400"
                     />
