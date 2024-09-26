@@ -1,17 +1,30 @@
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useNavigate } from "react-router-dom";
 import { useState } from "react";
-
 import rectangleImage from '../assets/Rectangle 3.png';
 import logoImage from '../assets/HUST__2_-removebg-preview 2.png';
 
 function SignIn() {
-    const { clients, freelancers, setSignedInUser } = useOutletContext();
-    const [name, setName] = useState("");
+    const { clients, setSignedInUser } = useOutletContext();  // Fetch clients and the function to set the signed-in user
     const [email, setEmail] = useState("");
-    const [contact, setContact] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");  // To store sign-in error messages
 
-    const handleSubmit = () => {
-        // Handle form submission
+    const navigate = useNavigate();  // To navigate after successful sign-in
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        // Check if email and password match any client in the list
+        const user = clients.find(client => client.email === email && client.password === password);
+
+        if (user) {
+            // User found, set signed-in user
+            setSignedInUser(user);
+            navigate(`/`);  // Navigate to the user's profile page
+        } else {
+            // If no match, set an error message
+            setError("Invalid email or password.");
+        }
     };
 
     return (
@@ -39,7 +52,7 @@ function SignIn() {
                         <div className="mb-6 text-center">
                             <img src={logoImage} alt="Logo" className="mx-auto w-150 h-70" />
                         </div>
-                        
+
                         <div className="mb-12 text-left">
                             <h3 className="text-4xl font-extrabold" style={{ color: "#E3BB2F" }}>SIGN IN</h3>
                         </div>
@@ -48,6 +61,8 @@ function SignIn() {
                             <label className="text-xs block mb-2" style={{ color: "#E3BB2F" }}>Email</label>
                             <div className="relative flex items-center">
                                 <input
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}  // Update email state
                                     name="email"
                                     type="text"
                                     required
@@ -63,6 +78,8 @@ function SignIn() {
                             <label className="text-xs block mb-2" style={{ color: "#E3BB2F" }}>Password</label>
                             <div className="relative flex items-center">
                                 <input
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}  // Update password state
                                     name="password"
                                     type="password"
                                     required
@@ -71,9 +88,12 @@ function SignIn() {
                                 />
                             </div>
                         </div>
+
+                        {error && <p className="text-red-500 mt-4">{error}</p>} {/* Display error message */}
+
                         <div className="mt-12 text-center">
                             <button
-                                type="button"
+                                type="submit"
                                 className="w-full py-3 px-6 text-sm font-semibold tracking-wider rounded-full text-white"
                                 style={{ backgroundColor: "#E3BB2F" }}
                             >
