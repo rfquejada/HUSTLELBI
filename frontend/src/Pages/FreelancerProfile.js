@@ -23,7 +23,6 @@ function FreelancerProfile(props) {
                 {/* Left Container */}
                 <div className="flex flex-col items-center bg-[#1E1E1E] p-4 rounded-3xl shadow-md w-1/3 mr-4">
                 <img
-                        src={user.img ? user.img : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBuxUOcfaNIa_PZ2zgpCjwtS6ziiwb0tAZJg&s"}
                         alt="Freelancer Profile"
                         className="w-44 h-44 rounded-xl object-cover mt-4 mb-2 border-4 border-yellow-400"
                     />
