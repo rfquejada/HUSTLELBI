@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
 
 function SignUp() {
-    const { clients, freelancers, setFreelancers, setClients } = useOutletContext();
+    const { clients, freelancers, setFreelancers, setClients, signedInUser, setSignedInUser } = useOutletContext();
     const [isFreelancer, setIsFreelancer] = useState(true); // Toggle between Freelancer and Client
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -34,6 +34,7 @@ function SignUp() {
             };
             setFreelancers([...freelancers, new_freelancer]);
             resetForm();
+            setSignedInUser(new_freelancer.id)
             navigate('/BuildFreelancer');
         } else {
             const largestId = clients.reduce((maxId, client) => Math.max(maxId, client.id), 0);
@@ -46,6 +47,7 @@ function SignUp() {
             };
             setClients([...clients, new_client]);
             resetForm();
+            setSignedInUser(new_client.id)
             navigate('/BuildClient');
         }
     };

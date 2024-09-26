@@ -77,8 +77,8 @@ function Post (props)
 
       
     return (
-      <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-        <div className="bg-yellow-400 text-black rounded-3xl p-8 w-full max-w-xl shadow-xl flex flex-col items-center">
+      <div className="fixed inset-0 overflow-auto flex items-center justify-center z-50 bg-black bg-opacity-50">
+        <div className="bg-yellow-400  text-black rounded-3xl p-8 w-full max-w-xl shadow-xl flex flex-col items-center">
           <h1 className="text-3xl font-bold mb-6 text-center">OFFER JOB TO HUSTLEBEES</h1>
 
           <form onSubmit={e => handleSubmit(e, navigate)} className="w-full">
