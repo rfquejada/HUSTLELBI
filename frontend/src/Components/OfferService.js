@@ -28,7 +28,7 @@ function OfferService (props)
             const new_offer = {
                 rate: rate, 
                 message: message,
-                freelancerId: user
+                freelancerId: user.id
             }
             if (updateList[i].offers){
                 updateList[i].offers = [...updateList[i].offers, new_offer]

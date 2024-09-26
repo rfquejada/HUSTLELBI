@@ -37,7 +37,7 @@ function OfferJob (props)
             title : title,
             details : details,
             type: type,
-            clientId: user,
+            clientId: user.id,
             difficulty: difficulty,
             requirements: requirements,
             rate: rate,

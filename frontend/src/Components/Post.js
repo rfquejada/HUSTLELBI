@@ -25,7 +25,7 @@ function Post (props)
     const navigate = useNavigate();
     const handleSubmit = async(event, navigate) => {
         event.preventDefault();
-
+        console.log(user)
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -36,7 +36,7 @@ function Post (props)
             title : title,
             details : details,
             type: type,
-            clientId: user,
+            clientId: user.id,
             difficulty: difficulty,
             requirements: requirements,
             rate: rate,
@@ -46,6 +46,8 @@ function Post (props)
             forOffering: true,
             completed: false
         }
+
+        console.log(newJob)
         setJobs([...jobs, newJob])
         setTitle("")
         setDetails("")

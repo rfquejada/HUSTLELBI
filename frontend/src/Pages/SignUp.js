@@ -33,8 +33,8 @@ function SignUp() {
                 password: password
             };
             setFreelancers([...freelancers, new_freelancer]);
+            setSignedInUser(new_freelancer)
             resetForm();
-            setSignedInUser(new_freelancer.id)
             navigate('/BuildFreelancer');
         } else {
             const largestId = clients.reduce((maxId, client) => Math.max(maxId, client.id), 0);
@@ -45,14 +45,18 @@ function SignUp() {
                 contact: contact,
                 password: password
             };
+            
             setClients([...clients, new_client]);
+            setSignedInUser(new_client)
             resetForm();
-            setSignedInUser(new_client.id)
             navigate('/BuildClient');
         }
+
+        
     };
 
     const resetForm = () => {
+        console.log(signedInUser)
         setName("");
         setEmail("");
         setContact("");
