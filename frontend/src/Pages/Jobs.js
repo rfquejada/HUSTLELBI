@@ -37,6 +37,7 @@ function Jobs() {
                   <h1 className="text-2xl font-bold">{job.title}</h1>
                   <p className="text-sm text-yellow-100">Date of job: {job.date}</p>
                   <p className="text-sm text-yellow-100">Requirements: {job.requirements}</p>
+                  <p className="text-sm text-yellow-100">Rate: {job.rate}</p>
                   <p className="text-sm text-yellow-100">Type/s: {job.type}</p>
                   <p className="text-sm text-yellow-100">Difficulty: {job.difficulty}</p>
                   <p className="text-sm text-yellow-100">Location: {job.location}</p>
