@@ -17,6 +17,7 @@ function OfferJob (props)
     const [type, setType] = useState([])
     const [difficulty, setDifficulty] = useState("")
     const [requirements, setRequirements] = useState([])
+    const [rate, setRate] = useState("")
     const [date, setDate] = useState("")
     const [location, setLocation] = useState("")
     const difficultyChoice = ["easy", "medium", "hard"]
@@ -39,6 +40,7 @@ function OfferJob (props)
             clientId: user,
             difficulty: difficulty,
             requirements: requirements,
+            rate: rate,
             date: date, 
             date_posted: today,
             location: location, 
@@ -54,6 +56,7 @@ function OfferJob (props)
         setType([])
         setDifficulty("")
         setRequirements("")
+        setRate("")
         setDate("")
         setLocation("")
         setShow(false)
@@ -105,25 +108,25 @@ function OfferJob (props)
             </div>
 
             {/* Job Types */}
-            <div className="mb-4">
-              <label className="block font-bold mb-2 text-center">TYPES:</label>
-              <div className="flex justify-center space-x-4">
-                {uniqueServiceTypes.map((serviceType, index) => (
-                  <button
-                    key={index}
-                    type="button"
-                    onClick={() => handleTypeToggle(serviceType)}
-                    className={`px-4 py-2 rounded-3xl ${
-                      type.includes(serviceType)
-                        ? "bg-yellow-500 text-black"
-                        : "bg-gray-800 text-white"
-                    } transition`}                     
-                  >
-                    {serviceType}
-                  </button>
-                ))}
+              <div className="mb-4">
+                <label className="block font-bold mb-2 text-center">TYPES:</label>
+                <div className="flex flex-wrap justify-start gap-2">
+                  {uniqueServiceTypes.map((serviceType, index) => (
+                    <button
+                      key={index}
+                      type="button"
+                      onClick={() => handleTypeToggle(serviceType)}
+                      className={`px-4 py-2 rounded-3xl ${
+                        type.includes(serviceType)
+                          ? "bg-yellow-500 text-black"
+                          : "bg-gray-800 text-white"
+                      } transition`}
+                    >
+                      {serviceType}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
 
             {/* Date and Location */}
             <div className="flex justify-between mb-4">
@@ -155,6 +158,17 @@ function OfferJob (props)
                 onChange={(e) => setRequirements(e.target.value)}
                 className="w-full p-4 border border-gray-400 rounded-3xl"
                 placeholder="Enter requirements"
+              />
+            </div>
+
+            {/* Rate */}
+            <div className="mb-4">
+              <input
+                type="number"
+                value={rate}
+                onChange={(e) => setRate(e.target.value)}
+                className="w-full p-4 border border-gray-400 rounded-3xl"
+                placeholder="Enter rate"
               />
             </div>
 
